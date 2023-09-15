@@ -7,4 +7,6 @@ http.createServer((req, res) => {
     });
     res.write('Hello world!');
     res.end();
-}).listen(port);
+}).listen(port, () => {
+    console.log(`Server running on port ${port}`);
+});
