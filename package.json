@@ -1,0 +1,12 @@
+{
+  "name": "js-backend-cat-shelter",
+  "version": "1.0.0",
+  "description": "Workshop for my JS Back-End module.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
