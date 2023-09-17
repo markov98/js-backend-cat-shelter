@@ -1,0 +1,27 @@
+[
+    {
+      "picture": "https://example.com/cat1.jpg",
+      "breed": "Siamese",
+      "description": "The Siamese cat is known for its striking blue almond-shaped eyes and short coat with color points on the ears, face, paws, and tail."
+    },
+    {
+      "picture": "https://example.com/cat2.jpg",
+      "breed": "Maine Coon",
+      "description": "The Maine Coon is one of the largest domesticated cat breeds, known for its friendly and sociable nature, as well as its tufted ears and long, shaggy coat."
+    },
+    {
+      "picture": "https://example.com/cat3.jpg",
+      "breed": "Persian",
+      "description": "The Persian cat is famous for its long, luxurious fur and sweet, gentle temperament. They have a distinctive flat face and a calm, laid-back personality."
+    },
+    {
+      "picture": "https://example.com/cat4.jpg",
+      "breed": "Bengal",
+      "description": "Bengal cats have a wild appearance with their distinctive spotted or marbled coat. They are energetic and playful, often resembling a small leopard."
+    },
+    {
+      "picture": "https://example.com/cat5.jpg",
+      "breed": "Ragdoll",
+      "description": "Ragdolls are known for their docile and affectionate nature. They have semi-long hair, striking blue eyes, and are often described as 'puppy-like' in their behavior."
+    }
+  ]

@@ -3,14 +3,20 @@ const homeTemplate = require('./views/home/index.js');
 const addBreedTemplate = require('./views/addBreed.js')
 const addCatTemplate = require('./views/addCat.js');
 const siteCss = require('./content/styles/site.js')
+const catTemplate = require('./views/home/catTemplate.js');
+const catsData = require(`./data/cats.json`);
 const port = 3000;
 
 http.createServer((req, res) => {
     if (req.url === '/') {
+        const modifiedHomeTemplate = homeTemplate.replace('{{cats}}', catsData.map(
+            (cat) => catTemplate.replace('{{img}}', cat['picture']).replace('{{breed}}', cat['breed']).replace('{{desc}}', cat['description'])
+            ));
+
         res.writeHead(200, {
             'Content-type': 'text/html'
         });
-        res.write(homeTemplate);
+        res.write(modifiedHomeTemplate);
     } else if (req.url === '/cats/add-breed') {
         res.writeHead(200, {
             'Content-type': 'text/html'
