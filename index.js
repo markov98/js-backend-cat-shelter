@@ -32,7 +32,7 @@ http.createServer(async (req, res) => {
         res.write(addCatTemplate);
     }
      else if (req.url === '/content/styles/site.css') {
-        const siteCss = await fs.readFile('./content/styles/site.css', 'utf-8')
+        const siteCss = await fs.readFile('./content/styles/site.css', 'utf-8');
 
         res.writeHead(200, {
             'Content-type': 'text/css'
