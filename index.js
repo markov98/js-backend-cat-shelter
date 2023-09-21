@@ -1,45 +1,28 @@
-const http = require('http');
-const fs = require('fs/promises');
+const express = require('express');
+const exphbs = require('express-handlebars');
 const catsData = require(`./data/cats.json`);
+
+const app = express();
 const port = 3000;
 
-http.createServer(async (req, res) => {
-    if (req.url === '/') {
-        const homeTemplate = await fs.readFile('./views/home/index.html', 'utf-8');
-        const catTemplate = await fs.readFile('./views/home/catTemplate.html', 'utf-8');
+const handlebars = exphbs.create({ extname: '.hbs' });
+app.engine('.hbs', handlebars.engine)
+app.set('view engine', '.hbs');
 
-        const modifiedHomeTemplate = homeTemplate.replace('{{cats}}', catsData.map(
-            (cat) => catTemplate.replace('{{img}}', cat['picture']).replace('{{breed}}', cat['breed']).replace('{{desc}}', cat['description'])
-            ));
+app.use(express.static('content'));
 
-        res.writeHead(200, {
-            'Content-type': 'text/html'
-        });
-        res.write(modifiedHomeTemplate);
-    } else if (req.url === '/cats/add-breed') {
-        const addBreedTemplate = await fs.readFile('./views/addBreed.html', 'utf-8');
-
-        res.writeHead(200, {
-            'Content-type': 'text/html'
-        });
-        res.write(addBreedTemplate);
-    } else if (req.url === '/cats/add-cat') {
-        const addCatTemplate = await fs.readFile('./views/addCat.html', 'utf-8');
-
-        res.writeHead(200, {
-            'Content-type': 'text/html'
-        });
-        res.write(addCatTemplate);
-    }
-     else if (req.url === '/content/styles/site.css') {
-        const siteCss = await fs.readFile('./content/styles/site.css', 'utf-8');
-
-        res.writeHead(200, {
-            'Content-type': 'text/css'
-        });
-        res.write(siteCss);
-    }
-    res.end();
-}).listen(port, () => {
-    console.log(`Server running on port ${port}`);
+app.get('/', function (req, res) {
+    res.render('home/index');
 });
+
+app.get('/cats/add-breed', function (req, res) {
+    res.render('addBreed');
+});
+
+app.get('/cats/add-cat', function (req, res) {
+    res.render('addCat');
+});
+
+app.listen(port, function (req, res) {
+    console.log(`Server is running on port ${port}.`);
+})
