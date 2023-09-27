@@ -12,7 +12,7 @@ app.set('view engine', '.hbs');
 app.use(express.static('content'));
 
 app.get('/', function (req, res) {
-    res.render('home/index', {cats: catsData});
+    res.render('home', {cats: catsData});
 });
 
 app.get('/cats/add-breed', function (req, res) {
