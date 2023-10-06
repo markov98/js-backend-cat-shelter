@@ -16,9 +16,13 @@
 <main>
     <section class="cats">
         <ul>
-            {{#each cats}}
-                {{>catTemplate}}
-            {{/each}}
+            {{#if hasCats}}
+                {{#each cats}}
+                    {{>catTemplate}}
+                {{/each}}
+                {{else}}
+                    <h2>No cats</h2>
+            {{/if}}
         </ul>
     </section>
 </main>
