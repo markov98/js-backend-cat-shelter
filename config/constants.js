@@ -1,4 +1,4 @@
 module.exports = {
     PORT: 3000,
-    DNURL: 'mongodb://localhost:27017/cat-shelter'
+    DBURL: 'mongodb://localhost:27017/cat-shelter'
 }

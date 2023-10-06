@@ -1,6 +1,9 @@
 const app = require('./config/express');
 const {PORT, DBURL} = require('./config/constants');
 
+require('./config/db')(DBURL)
+    .then(() => console.log('Connected to DB!'))
+    .catch((err) => console.log(err));
 
 app.get('/', function (req, res) {
     res.render('home', {cats: catsData});
